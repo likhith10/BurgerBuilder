@@ -6,6 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 const INGREDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -127,7 +128,7 @@ purchaseContinueHandler = () => {
 
         }
         return(
-        <Auxiliary>
+        <Auxiliary >
             <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler} > 
            {orderSummary}
            </Modal>    
@@ -145,4 +146,4 @@ purchaseContinueHandler = () => {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder,axios);
