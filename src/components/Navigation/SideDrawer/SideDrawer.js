@@ -17,7 +17,7 @@ return(
  <Logo />
  </div> 
 <nav>
-    <NavigationItems />
+    <NavigationItems isAuthenticated={props.isAuth} />
     </nav>
     </div>
     </Auxiliary>    
